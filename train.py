@@ -9,12 +9,14 @@ from model import get_model
 
 wandb.init(project="smollm-training", name="llama-smollm-corpus", mode="offline")
 
-BATCH_SIZE = 8
+BATCH_SIZE = 4
+ACCUMULATION_STEPS = 8
+
 SEQ_LEN = 256
 LEARNING_RATE = 1e-4
 EPOCHS = 5
 WARMUP_STEPS = 1000
-GRADIENT_CLIP_VAL = 1.0
+GRADIENT_CLIP_VAL = 0.5
 CHECKPOINT_DIR = "checkpoints"
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 DEVICE = (
@@ -25,8 +27,7 @@ DEVICE = (
 
 
 def generate_text(
-    model, tokenizer, prompt, max_length=50, temperature=0.7, top_k=50, device=DEVICE
-):
+    model, tokenizer, prompt, max_length=50, temperature=0.7, top_k=50, device=DEVICE):
     model.eval()
     input_ids = tokenizer.encode(prompt, return_tensors="pt").to(device)
 
@@ -132,6 +133,7 @@ print(f"Total Parameters: {total_params:,}")
 print(f"Model Size: {total_params * 4 / (1024 * 1024):.2f} MB")  # Assuming float32 (4 bytes)
 print(f"Device: {DEVICE}")
 print(f"Batch Size: {BATCH_SIZE}")
+print(f"Accumulation Steps: {ACCUMULATION_STEPS}")
 print(f"Sequence Length: {SEQ_LEN}")
 print(f"Learning Rate: {LEARNING_RATE}")
 print("-" * 50 + "\n")
@@ -141,7 +143,7 @@ optimizer = AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=0.01)
 lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(
     optimizer,
     max_lr=LEARNING_RATE,
-    total_steps=10000,
+    total_steps=20000,
     pct_start=0.1,
     anneal_strategy="cos",
     cycle_momentum=False,
@@ -149,102 +151,172 @@ lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(
 
 # Load checkpoint if exists
 start_epoch, global_step = load_checkpoint(
-    f"{CHECKPOINT_DIR}/latest_checkpoint.pt", model, optimizer, lr_scheduler
+    f"{CHECKPOINT_DIR}/latest_checkpoint.pt",
+    #f"{CHECKPOINT_DIR}/interrupted_checkpoint.pt",
+    model, 
+    optimizer, 
+    lr_scheduler
 )
 
 # Sample prompts for evaluation
 sample_prompts = [
     "The future of artificial intelligence",
-    "The most important thing in life",
-    "The best way to learn programming",
+    # "The most important thing in life",
+    # "The best way to learn programming",
 ]
+
+## TODO: The BELOW code needs to inluded
+# expert_load = torch.zeros(model.model.layers[0].mlp.moe.num_routed_experts, device=DEVICE)
+# for k in range(model.model.layers[0].mlp.moe.top_k):
+#     routing_logits = model.model.layers[0].mlp.moe.router(input_ids) + model.model.layers[0].mpl.moe.routing_bias
+#     routing_probs = torch.sigmoid(routing_logits)
+#     _, indices = torch.topk(routing_probs, model.model.layers[0].mpl.moe.top_k, dim=-1)
+#     for i in range(model.model.layers[0].mlp.moe.num_routed_experts):
+#         expert_load[i] += (indices[..., k] == i).sum()
+
+# expert_load = expert_load / (input_ids.size(0) * input_ids.size(1) * model.model.layers[0].mlp.moe.top_k)
+
+# model.model.layers[0].mlp.moe.update_bias_terms(expert_load)
+
+## TODO: The ABOVE code need to be include
 
 model.train()
 try:
     for epoch in range(start_epoch, EPOCHS):
         print(f"Epoch {epoch + 1}/{EPOCHS}")
+        optimizer.zero_grad()  # Zero gradients at start of epoch
+        
         for step, batch in enumerate(train_loader, start=global_step):
             # Move batch to device
             input_ids = batch["input_ids"].to(DEVICE)
             attention_mask = batch["attention_mask"].to(DEVICE)
             labels = batch["labels"].to(DEVICE)
 
+            # Calculate expert load and update routing bias every 100 steps
+            if step % 100 == 0:
+                with torch.no_grad():
+                    # Get initial hidden states
+                    hidden_states = model.model.embed_tokens(input_ids)
+                    
+                    # Update expert load for each layer
+                    for layer_idx, layer in enumerate(model.model.layers):
+                        # Initialize expert load tensor
+                        expert_load = torch.zeros(layer.mlp.moe.num_routed_experts, device=DEVICE)
+                        
+                        # Get routing probabilities
+                        routing_logits = layer.mlp.moe.router(hidden_states)
+                        routing_probs = torch.sigmoid(routing_logits + layer.mlp.moe.routing_bias)
+                        
+                        # Get top-k expert indices
+                        _, indices = torch.topk(routing_probs, k=layer.mlp.moe.top_k, dim=-1)
+                        
+                        # Calculate load for each expert
+                        for i in range(layer.mlp.moe.num_routed_experts):
+                            expert_load[i] = (indices == i).sum().float()
+                        
+                        # Normalize the expert load
+                        total_tokens = input_ids.size(0) * input_ids.size(1)
+                        expert_load = expert_load / (total_tokens * layer.mlp.moe.top_k)
+                        
+                        # Update routing bias
+                        layer.mlp.moe.update_bias_terms(expert_load)
+                        
+                        # Log expert utilization
+                        for i, load in enumerate(expert_load):
+                            wandb.log({
+                                f"layer_{layer_idx}_expert_{i}_load": load.item(),
+                                "step": step
+                            })
+                        
+                        # Process hidden states through the layer for next iteration
+                        hidden_states = layer.input_layernorm(hidden_states)
+                        hidden_states = layer.self_attn(hidden_states)
+                        hidden_states = layer.post_attention_layernorm(hidden_states)
+
             # Forward pass
             outputs = model(input_ids)
             logits = outputs.view(-1, tokenizer.vocab_size)
 
-            # Calculate loss with label smoothing
+            # Calculate loss
             loss = torch.nn.functional.cross_entropy(
-                logits, labels.view(-1), label_smoothing=0.1  # Add label smoothing
+                logits, labels.view(-1), label_smoothing=0.1
             )
+            
+            # Scale loss by accumulation steps
+            scaled_loss = loss / ACCUMULATION_STEPS
+            
+            # Backward pass
+            scaled_loss.backward()
 
-            # Backward pass with gradient clipping
-            optimizer.zero_grad()
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), GRADIENT_CLIP_VAL)
-            optimizer.step()
-            lr_scheduler.step()
-
-            # Logging
+            # Logging (show unscaled loss for monitoring)
             if step % 10 == 0:
                 print(
-                    f"Step {step}, Loss: {loss.item():.4f}, LR: {lr_scheduler.get_last_lr()[0]:.2e}"
+                    f"Step {step}, Loss: {loss.item():.4f}, "  # Original loss
+                    f"Scaled Loss: {scaled_loss.item():.4f}, "  # Scaled loss
+                    f"LR: {lr_scheduler.get_last_lr()[0]:.2e}, "
+                    f"Accumulation Step: {(step + 1) % ACCUMULATION_STEPS}/{ACCUMULATION_STEPS}"
                 )
-                wandb.log(
-                    {
-                        "loss": loss.item(),
-                        "lr": lr_scheduler.get_last_lr()[0],
-                        "step": step,
-                        "epoch": epoch,
-                    }
-                )
+                wandb.log({
+                    "loss": loss.item(),  # Log original loss
+                    "scaled_loss": scaled_loss.item(),  # Log scaled loss
+                    "lr": lr_scheduler.get_last_lr()[0],
+                    "step": step,
+                    "epoch": epoch,
+                })
 
-            # Save checkpoint every 100 steps
-            if step % 100 == 0:
+            # Update weights after accumulation steps
+            if (step + 1) % ACCUMULATION_STEPS == 0:
+                # Clip gradients
+                torch.nn.utils.clip_grad_norm_(model.parameters(), GRADIENT_CLIP_VAL)
+                
+                # Optimizer step
+                optimizer.step()
+                
+                # Update learning rate
+                lr_scheduler.step()
+                
+                # Zero gradients
+                optimizer.zero_grad()
+                
+                # print(f"\nCompleted gradient accumulation step {step + 1}")
+
+            # Save checkpoint every 100 steps (actual updates)
+            if step % 100 == 0 and step != 0:
                 save_checkpoint(
                     model,
                     optimizer,
                     lr_scheduler,
                     epoch,
                     step,
-                    loss.item(),
+                    loss.item(),  # Save original loss
                     f"{CHECKPOINT_DIR}/latest_checkpoint.pt",
                 )
 
-                # Also save numbered checkpoint every 1000 steps
-                if step % 1000 == 0:
-                    save_checkpoint(
-                        model,
-                        optimizer,
-                        lr_scheduler,
-                        epoch,
-                        step,
-                        loss.item(),
-                        f"{CHECKPOINT_DIR}/checkpoint_step_{step}.pt",
-                    )
-
-            # Generate sample text every 500 steps with different temperatures
-            if step % 500 == 0:
+            # Generate sample text every 500 steps
+            if step != 0 and step % 500 == 0:
+                model.eval()
                 print("\n=== Generating Sample Texts ===")
-                for temp in [1.0]:  # Try different temperatures like [0.7, 1.0]
+                
+                # Save model state for generation
+                generation_state = model.state_dict()
+                
+                for temp in [1.0]:  # Added back temperature variation
                     for prompt in sample_prompts:
                         generated = generate_text(
                             model,
                             tokenizer,
                             prompt,
                             temperature=temp,
-                            max_length=100,  # Increased max length
+                            max_length=100,
                         )
                         print(f"\nPrompt: {prompt}")
                         print(f"Temperature: {temp}")
                         print(f"Generated: {generated}")
-                        wandb.log(
-                            {
-                                f"generated_text_temp_{temp}_{prompt[:20]}": wandb.Html(
-                                    generated
-                                )
-                            }
-                        )
+                        wandb.log({
+                            f"generated_text_temp_{temp}_{prompt[:20]}": wandb.Html(generated),
+                            "step": step
+                        })
+                
                 print("\n=== End of Samples ===\n")
                 model.train()
 
@@ -255,7 +327,7 @@ try:
             lr_scheduler,
             epoch,
             step,
-            loss.item(),
+            loss.item(),  # Save original loss
             f"{CHECKPOINT_DIR}/checkpoint_epoch_{epoch+1}.pt",
         )
 
@@ -267,7 +339,7 @@ except KeyboardInterrupt:
         lr_scheduler,
         epoch,
         step,
-        loss.item(),
+        loss.item(),  # Save original loss
         f"{CHECKPOINT_DIR}/interrupted_checkpoint.pt",
     )
 
