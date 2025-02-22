@@ -5,9 +5,11 @@ from transformers import AutoTokenizer, get_scheduler
 from torch.optim import AdamW
 import wandb
 import os, sys
+import time
 from model import get_model
 
 wandb.init(project="smollm-training", name="llama-smollm-corpus", mode="offline")
+
 
 BATCH_SIZE = 4
 ACCUMULATION_STEPS = 8
@@ -160,9 +162,11 @@ start_epoch, global_step = load_checkpoint(
 
 # Sample prompts for evaluation
 sample_prompts = [
-    "The future of artificial intelligence",
-    # "The most important thing in life",
-    # "The best way to learn programming",
+    "Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics! ",
+    "Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them. ",
+    "All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking. ",
+    "There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles. ",
+    "Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now. ",
 ]
 
 ## TODO: The BELOW code needs to inluded
@@ -248,13 +252,16 @@ try:
             # Backward pass
             scaled_loss.backward()
 
+            current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+
             # Logging (show unscaled loss for monitoring)
             if step % 10 == 0:
                 print(
                     f"Step {step}, Loss: {loss.item():.4f}, "  # Original loss
                     f"Scaled Loss: {scaled_loss.item():.4f}, "  # Scaled loss
                     f"LR: {lr_scheduler.get_last_lr()[0]:.2e}, "
-                    f"Accumulation Step: {(step + 1) % ACCUMULATION_STEPS}/{ACCUMULATION_STEPS}"
+                    f"Accumulation Step: {(step + 1) % ACCUMULATION_STEPS}/{ACCUMULATION_STEPS}, "
+                    f"Current Time: {current_time} "
                 )
                 wandb.log({
                     "loss": loss.item(),  # Log original loss
