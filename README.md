@@ -1626,5 +1626,220 @@ Step 9020, Loss: 3.8823, Scaled Loss: 0.4853, LR: 6.16e-05, Accumulation Step: 5
 Step 9030, Loss: 3.9272, Scaled Loss: 0.4909, LR: 6.16e-05, Accumulation Step: 7/8, Current Time: 2025-02-22 20:05:23 
 /opt/anaconda3/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
   warnings.warn('resource_tracker: There appear to be %d '
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.4
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+
+Model Statistics:
+Total Parameters: 688,702,098
+Model Size: 2627.19 MB
+Device: mps
+Batch Size: 4
+Accumulation Steps: 8
+Sequence Length: 256
+Learning Rate: 0.0001
+--------------------------------------------------
+
+Epoch 1/5
+Step 9000, Loss: 3.9318, Scaled Loss: 0.4915, LR: 6.14e-05, Accumulation Step: 1/8, Current Time: 2025-02-22 20:58:15 
+
+=== Generating Sample Texts ===
+
+Prompt: Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics! 
+Temperature: 1.0
+Generated: Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics!             hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars
+
+Prompt: Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them. 
+Temperature: 1.0
+Generated: Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them.   Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra Cra
+
+Prompt: All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking. 
+Temperature: 1.0
+Generated: All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking.                                     widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened widened
+
+Prompt: There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles. 
+Temperature: 1.0
+Generated: There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles.             ellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellationellation
+
+Prompt: Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now. 
+Temperature: 1.0
+Generated: Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now.                                         ibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibidibid
+
+=== End of Samples ===
+
+Step 9010, Loss: 3.9561, Scaled Loss: 0.4945, LR: 6.15e-05, Accumulation Step: 3/8, Current Time: 2025-02-22 21:28:25 
+Step 9020, Loss: 3.9049, Scaled Loss: 0.4881, LR: 6.16e-05, Accumulation Step: 5/8, Current Time: 2025-02-22 21:41:59 
+Step 9030, Loss: 3.8978, Scaled Loss: 0.4872, LR: 6.16e-05, Accumulation Step: 7/8, Current Time: 2025-02-22 21:56:30 
+Step 9040, Loss: 3.8882, Scaled Loss: 0.4860, LR: 6.18e-05, Accumulation Step: 1/8, Current Time: 2025-02-22 22:11:05 
+Step 9050, Loss: 3.9327, Scaled Loss: 0.4916, LR: 6.18e-05, Accumulation Step: 3/8, Current Time: 2025-02-22 22:25:41 
+Step 9060, Loss: 3.8755, Scaled Loss: 0.4844, LR: 6.19e-05, Accumulation Step: 5/8, Current Time: 2025-02-22 22:40:27 
+Step 9070, Loss: 3.8595, Scaled Loss: 0.4824, LR: 6.20e-05, Accumulation Step: 7/8, Current Time: 2025-02-22 22:55:03 
+Step 9080, Loss: 3.8408, Scaled Loss: 0.4801, LR: 6.21e-05, Accumulation Step: 1/8, Current Time: 2025-02-22 23:09:04 
+Step 9090, Loss: 3.8358, Scaled Loss: 0.4795, LR: 6.22e-05, Accumulation Step: 3/8, Current Time: 2025-02-22 23:23:52 
+Step 9100, Loss: 3.8239, Scaled Loss: 0.4780, LR: 6.23e-05, Accumulation Step: 5/8, Current Time: 2025-02-22 23:38:08 
+Step 9110, Loss: 3.8218, Scaled Loss: 0.4777, LR: 6.24e-05, Accumulation Step: 7/8, Current Time: 2025-02-22 23:54:09 
+Step 9120, Loss: 3.8266, Scaled Loss: 0.4783, LR: 6.25e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 00:10:18 
+Step 9130, Loss: 3.8468, Scaled Loss: 0.4808, LR: 6.26e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 00:24:31 
+Step 9140, Loss: 3.8332, Scaled Loss: 0.4792, LR: 6.27e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 00:38:28 
+Step 9150, Loss: 3.8282, Scaled Loss: 0.4785, LR: 6.27e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 00:52:09 
+Step 9160, Loss: 3.7885, Scaled Loss: 0.4736, LR: 6.29e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 01:07:36 
+Step 9170, Loss: 3.7854, Scaled Loss: 0.4732, LR: 6.30e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 01:21:42 
+Step 9180, Loss: 3.7841, Scaled Loss: 0.4730, LR: 6.30e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 01:35:55 
+Step 9190, Loss: 3.7579, Scaled Loss: 0.4697, LR: 6.31e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 01:49:57 
+Step 9200, Loss: 3.7449, Scaled Loss: 0.4681, LR: 6.32e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 02:04:29 
+Step 9210, Loss: 3.7934, Scaled Loss: 0.4742, LR: 6.33e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 02:19:54 
+Step 9220, Loss: 3.7607, Scaled Loss: 0.4701, LR: 6.34e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 02:33:40 
+Step 9230, Loss: 3.7244, Scaled Loss: 0.4655, LR: 6.35e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 02:46:05 
+Step 9240, Loss: 3.7305, Scaled Loss: 0.4663, LR: 6.36e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 03:01:26 
+Step 9250, Loss: 3.7460, Scaled Loss: 0.4683, LR: 6.37e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 03:15:58 
+Step 9260, Loss: 3.7296, Scaled Loss: 0.4662, LR: 6.38e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 03:29:54 
+Step 9270, Loss: 3.6988, Scaled Loss: 0.4624, LR: 6.38e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 03:45:28 
+Step 9280, Loss: 3.7306, Scaled Loss: 0.4663, LR: 6.40e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 04:00:19 
+Step 9290, Loss: 3.7576, Scaled Loss: 0.4697, LR: 6.41e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 04:13:50 
+Step 9300, Loss: 3.6972, Scaled Loss: 0.4621, LR: 6.41e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 04:28:55 
+Step 9310, Loss: 3.7285, Scaled Loss: 0.4661, LR: 6.42e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 04:44:46 
+Step 9320, Loss: 3.7144, Scaled Loss: 0.4643, LR: 6.43e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 04:59:41 
+Step 9330, Loss: 3.6821, Scaled Loss: 0.4603, LR: 6.44e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 05:14:46 
+Step 9340, Loss: 3.7132, Scaled Loss: 0.4641, LR: 6.45e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 05:28:29 
+Step 9350, Loss: 3.6827, Scaled Loss: 0.4603, LR: 6.46e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 05:42:17 
+Step 9360, Loss: 3.6296, Scaled Loss: 0.4537, LR: 6.47e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 05:57:39 
+Step 9370, Loss: 3.6823, Scaled Loss: 0.4603, LR: 6.48e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 06:15:06 
+Step 9380, Loss: 3.6412, Scaled Loss: 0.4552, LR: 6.49e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 06:33:24 
+Step 9390, Loss: 3.6481, Scaled Loss: 0.4560, LR: 6.49e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 06:50:55 
+Step 9400, Loss: 3.6620, Scaled Loss: 0.4577, LR: 6.51e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 07:09:13 
+Step 9410, Loss: 3.6316, Scaled Loss: 0.4540, LR: 6.51e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 07:25:02 
+Step 9420, Loss: 3.6184, Scaled Loss: 0.4523, LR: 6.52e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 07:39:28 
+Step 9430, Loss: 3.6961, Scaled Loss: 0.4620, LR: 6.53e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 07:53:18 
+Step 9440, Loss: 3.5824, Scaled Loss: 0.4478, LR: 6.54e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 08:08:14 
+Step 9450, Loss: 3.6278, Scaled Loss: 0.4535, LR: 6.55e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 08:25:17 
+Step 9460, Loss: 3.5756, Scaled Loss: 0.4469, LR: 6.56e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 08:41:19 
+Step 9470, Loss: 3.5758, Scaled Loss: 0.4470, LR: 6.57e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 08:55:10 
+Step 9480, Loss: 3.5921, Scaled Loss: 0.4490, LR: 6.58e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 09:09:45 
+Step 9490, Loss: 3.6037, Scaled Loss: 0.4505, LR: 6.59e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 09:23:54 
+Step 9500, Loss: 3.5560, Scaled Loss: 0.4445, LR: 6.59e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 09:37:13 
+
+=== Generating Sample Texts ===
+
+Prompt: Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics! 
+Temperature: 1.0
+Generated: Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics!              renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated renovated
+
+Prompt: Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them. 
+Temperature: 1.0
+Generated: Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them.           vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines vines
+
+Prompt: All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking. 
+Temperature: 1.0
+Generated: All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking.                                                hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars hars
+
+Prompt: There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles. 
+Temperature: 1.0
+Generated: There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles.                  erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad erad
+
+Prompt: Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now. 
+Temperature: 1.0
+Generated: Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now.      peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel peel
+
+=== End of Samples ===
+
+Step 9510, Loss: 3.6203, Scaled Loss: 0.4525, LR: 6.60e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 10:11:33 
+Step 9520, Loss: 3.5517, Scaled Loss: 0.4440, LR: 6.62e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 10:27:07 
+Step 9530, Loss: 3.5328, Scaled Loss: 0.4416, LR: 6.62e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 10:41:40 
+Step 9540, Loss: 3.5591, Scaled Loss: 0.4449, LR: 6.63e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 10:55:27 
+Step 9550, Loss: 3.5383, Scaled Loss: 0.4423, LR: 6.64e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 11:09:57 
+Step 9560, Loss: 3.5184, Scaled Loss: 0.4398, LR: 6.65e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 11:27:50 
+Step 9570, Loss: 3.5582, Scaled Loss: 0.4448, LR: 6.66e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 11:42:59 
+Step 9580, Loss: 3.5141, Scaled Loss: 0.4393, LR: 6.67e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 12:01:53 
+Step 9590, Loss: 3.5172, Scaled Loss: 0.4397, LR: 6.67e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 12:19:21 
+Step 9600, Loss: 3.5497, Scaled Loss: 0.4437, LR: 6.69e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 12:34:53 
+Step 9610, Loss: 3.5107, Scaled Loss: 0.4388, LR: 6.69e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 12:49:36 
+Step 9620, Loss: 3.4922, Scaled Loss: 0.4365, LR: 6.70e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 13:02:09 
+Step 9630, Loss: 3.4907, Scaled Loss: 0.4363, LR: 6.71e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 13:16:12 
+Step 9640, Loss: 3.4586, Scaled Loss: 0.4323, LR: 6.72e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 13:31:29 
+Step 9650, Loss: 3.5155, Scaled Loss: 0.4394, LR: 6.73e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 13:46:11 
+Step 9660, Loss: 3.4811, Scaled Loss: 0.4351, LR: 6.74e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 14:00:57 
+Step 9670, Loss: 3.4797, Scaled Loss: 0.4350, LR: 6.74e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 14:15:13 
+Step 9680, Loss: 3.4555, Scaled Loss: 0.4319, LR: 6.76e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 14:29:32 
+Step 9690, Loss: 3.4790, Scaled Loss: 0.4349, LR: 6.77e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 14:44:37 
+Step 9700, Loss: 3.4363, Scaled Loss: 0.4295, LR: 6.77e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 14:59:01 
+Step 9710, Loss: 3.4303, Scaled Loss: 0.4288, LR: 6.78e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 15:14:50 
+Step 9720, Loss: 3.4177, Scaled Loss: 0.4272, LR: 6.79e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 15:29:30 
+Step 9730, Loss: 3.4048, Scaled Loss: 0.4256, LR: 6.80e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 15:46:18 
+Step 9740, Loss: 3.4046, Scaled Loss: 0.4256, LR: 6.81e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 16:00:59 
+Step 9750, Loss: 3.3784, Scaled Loss: 0.4223, LR: 6.82e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 16:15:24 
+Step 9760, Loss: 3.3879, Scaled Loss: 0.4235, LR: 6.83e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 16:30:13 
+Step 9770, Loss: 3.4126, Scaled Loss: 0.4266, LR: 6.84e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 16:44:39 
+Step 9780, Loss: 3.3596, Scaled Loss: 0.4200, LR: 6.84e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 16:58:55 
+Step 9790, Loss: 3.3708, Scaled Loss: 0.4213, LR: 6.85e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 17:13:14 
+Step 9800, Loss: 3.3532, Scaled Loss: 0.4191, LR: 6.87e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 17:28:36 
+Step 9810, Loss: 3.3304, Scaled Loss: 0.4163, LR: 6.87e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 17:44:23 
+Step 9820, Loss: 3.3417, Scaled Loss: 0.4177, LR: 6.88e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 17:58:30 
+Step 9830, Loss: 3.3350, Scaled Loss: 0.4169, LR: 6.89e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 18:12:40 
+Step 9840, Loss: 3.3145, Scaled Loss: 0.4143, LR: 6.90e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 18:28:19 
+Step 9850, Loss: 3.3326, Scaled Loss: 0.4166, LR: 6.91e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 18:43:12 
+Step 9860, Loss: 3.3244, Scaled Loss: 0.4155, LR: 6.92e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 21:27:33 
+Step 9870, Loss: 3.3089, Scaled Loss: 0.4136, LR: 6.92e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 21:41:58 
+Step 9880, Loss: 3.3224, Scaled Loss: 0.4153, LR: 6.94e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 21:56:46 
+Step 9890, Loss: 3.2707, Scaled Loss: 0.4088, LR: 6.94e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 22:11:29 
+Step 9900, Loss: 3.3047, Scaled Loss: 0.4131, LR: 6.95e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 22:25:40 
+Step 9910, Loss: 3.3419, Scaled Loss: 0.4177, LR: 6.96e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 22:39:50 
+Step 9920, Loss: 3.2710, Scaled Loss: 0.4089, LR: 6.97e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 22:54:33 
+Step 9930, Loss: 3.2749, Scaled Loss: 0.4094, LR: 6.98e-05, Accumulation Step: 3/8, Current Time: 2025-02-23 23:09:36 
+Step 9940, Loss: 3.2318, Scaled Loss: 0.4040, LR: 6.99e-05, Accumulation Step: 5/8, Current Time: 2025-02-23 23:24:13 
+Step 9950, Loss: 3.2469, Scaled Loss: 0.4059, LR: 6.99e-05, Accumulation Step: 7/8, Current Time: 2025-02-23 23:39:49 
+Step 9960, Loss: 3.2316, Scaled Loss: 0.4039, LR: 7.01e-05, Accumulation Step: 1/8, Current Time: 2025-02-23 23:55:18 
+Step 9970, Loss: 3.2099, Scaled Loss: 0.4012, LR: 7.01e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 00:09:34 
+Step 9980, Loss: 3.2307, Scaled Loss: 0.4038, LR: 7.02e-05, Accumulation Step: 5/8, Current Time: 2025-02-24 00:23:52 
+Step 9990, Loss: 3.2373, Scaled Loss: 0.4047, LR: 7.03e-05, Accumulation Step: 7/8, Current Time: 2025-02-24 00:38:23 
+Step 10000, Loss: 3.2043, Scaled Loss: 0.4005, LR: 7.04e-05, Accumulation Step: 1/8, Current Time: 2025-02-24 00:54:56 
+
+=== Generating Sample Texts ===
+
+Prompt: Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics! 
+Temperature: 1.0
+Generated: Particles in Action. Have you ever imagined being able to see tiny particles that zoom around us at incredible speeds? Welcome to the world of particle physics!        hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis hepatitis
+
+Prompt: Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them. 
+Temperature: 1.0
+Generated: Developing number sense is a critical aspect of mathematics education that involves helping students understand numbers, their relationships, and operations involving them.                                          ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’ ’
+
+Prompt: All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking. 
+Temperature: 1.0
+Generated: All parts of the coriander plant are edible - including its leaves, its fruits, its seeds and its roots. However, the fresh leaves and the dried seeds score over the other two, and are the most commonly employed in cooking.                           insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion insertion
+
+Prompt: There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles. 
+Temperature: 1.0
+Generated: There are several foods that can help boost your metabolism and promote calorie burning, thanks to their unique nutritional profiles.        XMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXML
+
+Prompt: Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now. 
+Temperature: 1.0
+Generated: Are you looking for vegan sandwich recipes? We’ve rounded up 21 of our favorite vegan sandwich ideas that you will want to make right now.     XMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXMLXML
+
+=== End of Samples ===
+
+Step 10010, Loss: 3.2020, Scaled Loss: 0.4003, LR: 7.05e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 01:23:56 
+Step 10020, Loss: 3.1717, Scaled Loss: 0.3965, LR: 7.06e-05, Accumulation Step: 5/8, Current Time: 2025-02-24 01:39:21 
+Step 10030, Loss: 3.1977, Scaled Loss: 0.3997, LR: 7.06e-05, Accumulation Step: 7/8, Current Time: 2025-02-24 01:54:03 
+Step 10040, Loss: 3.2056, Scaled Loss: 0.4007, LR: 7.08e-05, Accumulation Step: 1/8, Current Time: 2025-02-24 02:09:27 
+Step 10050, Loss: 3.1697, Scaled Loss: 0.3962, LR: 7.08e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 02:24:28 
+Step 10060, Loss: 3.2495, Scaled Loss: 0.4062, LR: 7.09e-05, Accumulation Step: 5/8, Current Time: 2025-02-24 02:39:24 
+Step 10070, Loss: 3.2083, Scaled Loss: 0.4010, LR: 7.10e-05, Accumulation Step: 7/8, Current Time: 2025-02-24 02:53:56 
+Step 10080, Loss: 3.1910, Scaled Loss: 0.3989, LR: 7.11e-05, Accumulation Step: 1/8, Current Time: 2025-02-24 03:09:47 
+Step 10090, Loss: 3.1813, Scaled Loss: 0.3977, LR: 7.12e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 03:25:21 
+Step 10100, Loss: 3.1379, Scaled Loss: 0.3922, LR: 7.12e-05, Accumulation Step: 5/8, Current Time: 2025-02-24 03:40:01 
+Step 10110, Loss: 3.1427, Scaled Loss: 0.3928, LR: 7.13e-05, Accumulation Step: 7/8, Current Time: 2025-02-24 03:55:14 
+Step 10120, Loss: 3.1336, Scaled Loss: 0.3917, LR: 7.15e-05, Accumulation Step: 1/8, Current Time: 2025-02-24 04:10:23 
+Step 10130, Loss: 3.1207, Scaled Loss: 0.3901, LR: 7.15e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 04:25:42 
+Step 10140, Loss: 3.1141, Scaled Loss: 0.3893, LR: 7.16e-05, Accumulation Step: 5/8, Current Time: 2025-02-24 04:40:55 
+Step 10150, Loss: 3.1330, Scaled Loss: 0.3916, LR: 7.17e-05, Accumulation Step: 7/8, Current Time: 2025-02-24 04:55:49 
+Step 10160, Loss: 3.1192, Scaled Loss: 0.3899, LR: 7.18e-05, Accumulation Step: 1/8, Current Time: 2025-02-24 05:11:45 
+Step 10170, Loss: 3.1090, Scaled Loss: 0.3886, LR: 7.19e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 05:27:01 
+Step 10180, Loss: 3.1240, Scaled Loss: 0.3905, LR: 7.19e-05, Accumulation Step: 5/8, Current Time: 2025-02-24 05:42:36 
+Step 10190, Loss: 3.1121, Scaled Loss: 0.3890, LR: 7.20e-05, Accumulation Step: 7/8, Current Time: 2025-02-24 05:58:18 
+Step 10200, Loss: 3.0793, Scaled Loss: 0.3849, LR: 7.21e-05, Accumulation Step: 1/8, Current Time: 2025-02-24 06:16:31 
+Step 10210, Loss: 3.1153, Scaled Loss: 0.3894, LR: 7.22e-05, Accumulation Step: 3/8, Current Time: 2025-02-24 06:35:41 
+/opt/anaconda3/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
 
 ```
